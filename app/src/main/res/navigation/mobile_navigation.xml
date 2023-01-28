@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home"
+    >
+
+    <fragment
+        android:id="@+id/navigation_wishlist"
+        android:name="com.example.myapplication.ui.wishList.WishListFragment"
+        android:label="@string/title_wishlist"
+        tools:layout="@layout/fragment_wishlist" />
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_design_categories"
+            app:destination="@+id/navigation_design_categories" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_orders"
+        android:name="com.example.myapplication.ui.orders.OrdersFragment"
+        android:label="@string/title_orders"
+        tools:layout="@layout/fragment_orders" />
+
+    <fragment
+        android:id="@+id/navigation_design_categories"
+        android:name="com.example.myapplication.ui.home.DesignCategoriesFragment"
+        android:label="@string/title_design_category"
+        tools:layout="@layout/fragment_orders" >
+
+        <action
+            android:id="@+id/action_navigation_design_category_to_navigation_designs"
+            app:destination="@+id/navigation_designs_list"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_designs_list"
+        android:name="com.example.myapplication.ui.designList.DesignListFragment"
+        android:label="@string/txt_Designs_list"
+        tools:layout="@layout/fragment_design_list" >
+        <argument
+            android:name="design_category"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_navigation_design_list_to_image_view"
+            app:destination="@+id/navigation_image_view"
+            />
+
+        <action
+            android:id="@+id/action_navigation_design_list_to_design_detail"
+            app:destination="@+id/navigation_design_detail"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_image_view"
+        android:name="com.example.myapplication.ui.designList.ImageViewFragment"
+        android:label="@string/txt_design"
+        tools:layout="@layout/fragment_image_view">
+        <argument
+            android:name="image_url"
+            app:argType="string" />
+
+        <argument
+            android:name="image_name"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_design_detail"
+        android:name="com.example.myapplication.ui.designDetail.DesignDetailFragment"
+        android:label="@string/txt_design"
+        tools:layout="@layout/layout_design_detail_fragment">
+        <argument
+            android:name="design_item"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_navigation_design_detail_to_image_view"
+            app:destination="@+id/navigation_image_view"
+            />
+    </fragment>
+
+</navigation>

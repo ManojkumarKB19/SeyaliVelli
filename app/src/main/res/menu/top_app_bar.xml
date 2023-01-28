@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/contact_support"
+        android:icon="@drawable/ic_contact_support"
+        android:title="@string/str_contact_support"
+        android:contentDescription="@string/str_contact_support"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person"
+        android:title="@string/str_profile"
+        android:contentDescription="@string/str_profile"
+        app:showAsAction="ifRoom" />
+   <!-- <item
+        android:id="@+id/id_language"
+        android:title="@string/txt_language"
+        android:contentDescription="@string/more"
+        app:showAsAction="never"/>-->
+
+    <item
+        android:id="@+id/id_logout"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/txt_logout" />
+
+    <item
+        android:id="@+id/id_language"
+        android:title="@string/txt_language"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/id_menuTamil"
+                android:title="@string/txt_tamil" />
+            <item
+                android:id="@+id/id_menuEnglish"
+                android:title="@string/txt_english" />
+        </menu>
+    </item>
+</menu>

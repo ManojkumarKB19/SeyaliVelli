@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "550981951788",
+    "firebase_url": "https://silverapp-7af98-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "silverapp-7af98",
+    "storage_bucket": "silverapp-7af98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550981951788:android:2698baacb770dbca184c89",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550981951788-jvejtcaq2doq4v78ol0qai7ol4bvfa37.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "c4d1c7e060cacefcd21934297a0adc5893e6a878"
+          }
+        },
+        {
+          "client_id": "550981951788-kqoi1fkr5aqcbum668iegj1l5rft5cj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeGeVSwDbkfXTv9g9eyjexCCTJA8lbhiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550981951788-kqoi1fkr5aqcbum668iegj1l5rft5cj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

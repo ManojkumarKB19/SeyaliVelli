@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rounded_rectangle_border"
+    android:backgroundTint="@color/light_silver_3"
+    android:layout_marginTop="@dimen/_12sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_10sdp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="vertical"
+        android:id="@+id/guide5v"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="vertical"
+        android:id="@+id/guide95v"/>
+
+    <ImageView
+        android:id="@+id/imgDesignOthers"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/img_anklet"
+        app:layout_constraintLeft_toRightOf="@+id/guide5v"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/imgDesign"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/img_anklet"
+        app:layout_constraintLeft_toRightOf="@+id/guide5v"
+        app:layout_constraintRight_toLeftOf="@+id/guide95v"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_12sdp"
+        />
+
+    <TextView
+        android:id="@+id/txtNameLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imgDesign"
+        app:layout_constraintLeft_toLeftOf="@+id/guide5v"
+        app:layout_constraintRight_toRightOf="@+id/guide95v"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        android:text="@string/txt_name"/>
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imgDesign"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/guide5v"
+        app:layout_constraintRight_toRightOf="@+id/guide95v"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:textColor="@color/black"
+        tools:text="Single Arambu Gothu Design"
+        android:fontFamily="sans-serif-medium"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
