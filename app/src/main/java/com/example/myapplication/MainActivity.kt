@@ -73,6 +73,10 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.navigation_home)
                     return@setOnItemSelectedListener true
                 }
+                R.id.navigation_orders -> {
+                    navController.navigate(R.id.navigation_orders)
+                    return@setOnItemSelectedListener true
+                }
             }
             false
         }

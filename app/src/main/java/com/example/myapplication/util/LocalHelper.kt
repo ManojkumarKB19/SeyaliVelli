@@ -35,7 +35,7 @@ class LocalHelper @Inject constructor(base: Context) {
         set(value) = preference.edit().putString(_KEY_LANGUAGE, value).apply()
         get() = preference.getString(_KEY_LANGUAGE, "My_Lang")!!
 
-    var KEY_USER_ID: String
+   var KEY_USER_ID: String
         set(value) = preference.edit().putString(_KEY_USER_ID, value).apply()
         get() = preference.getString(_KEY_USER_ID, "")!!
 

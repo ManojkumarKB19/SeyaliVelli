@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +14,7 @@ import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.dao.DesignDao
 import com.example.myapplication.databinding.FragmentDesignListBinding
-import com.example.myapplication.di.DesignListDataModel
+import com.example.myapplication.dm.DesignListDataModel
 import com.example.myapplication.ui.home.HomeViewModel
 import com.example.myapplication.utils.Constant
 import com.example.myapplication.utils.Constant.ARG_DESIGN_ITEM

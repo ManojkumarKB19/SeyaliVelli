@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.di.DesignListDataModel
-import com.example.myapplication.di.SizeItem
+import com.example.myapplication.dm.SizeItem
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.di.CategoryModel
+import com.example.myapplication.dm.CategoryModel
 
 
 class CategoryListAdapter(private val categoryList: ArrayList<CategoryModel>,

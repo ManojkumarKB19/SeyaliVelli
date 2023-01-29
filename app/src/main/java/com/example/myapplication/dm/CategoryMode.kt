@@ -1,4 +1,4 @@
-package com.example.myapplication.di
+package com.example.myapplication.dm
 
 data class CategoryModel(
     var categoryName:String = ""

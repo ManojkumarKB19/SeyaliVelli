@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.di.CategoryModel
-import com.example.myapplication.di.DesignCategoryModel
+import com.example.myapplication.dm.DesignCategoryModel
 
-class DesignCategoryAdapter(private val designCategoryList: ArrayList<DesignCategoryModel>,private val context: Context,val mClickListener: DesignCategoryAdapter.ItemClickListener?) : RecyclerView.Adapter<DesignCategoryAdapter.ViewHolder>() {
+class DesignCategoryAdapter(private val designCategoryList: ArrayList<DesignCategoryModel>, private val context: Context, val mClickListener: DesignCategoryAdapter.ItemClickListener?) : RecyclerView.Adapter<DesignCategoryAdapter.ViewHolder>() {
 
     class ViewHolder internal constructor(itemView: View, mClickListener: DesignCategoryAdapter.ItemClickListener) : RecyclerView.ViewHolder(itemView),View.OnClickListener {
         var txtDesignCategory: TextView

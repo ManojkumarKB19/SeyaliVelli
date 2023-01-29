@@ -2,29 +2,31 @@ package com.example.myapplication.ui.designDetail
 
 import android.os.Bundle
 import android.util.Log
-import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
-import com.example.myapplication.dao.DesignDao
 import com.example.myapplication.databinding.LayoutDesignDetailFragmentBinding
-import com.example.myapplication.di.DesignCategoryModel
-import com.example.myapplication.di.DesignListDataModel
-import com.example.myapplication.di.SizeItem
-import com.example.myapplication.ui.designList.DesignListAdapter
-import com.example.myapplication.ui.home.DesignCategoryAdapter
+import com.example.myapplication.dm.DesignListDataModel
+import com.example.myapplication.dm.SizeItem
+import com.example.myapplication.util.LocalHelper
 import com.example.myapplication.utils.Constant
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DesignDetailFragment:Fragment(),DesignSizeListAdapter.DesignSizeItemClickListener {
 
     private var _binding: LayoutDesignDetailFragmentBinding? = null
@@ -40,6 +42,9 @@ class DesignDetailFragment:Fragment(),DesignSizeListAdapter.DesignSizeItemClickL
     var designSizeValueList:ArrayList<SizeItem>? = ArrayList()
 
     var wishSelected = false
+
+    @Inject
+    lateinit var localHelper: LocalHelper
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -98,17 +103,18 @@ class DesignDetailFragment:Fragment(),DesignSizeListAdapter.DesignSizeItemClickL
             // designValueList = designItem.Size?.values
 
             designSizeValueList?.clear()
-            for ((k, v) in designItem.Size!!) {
-                println(" Subject Name -> $k and its preference -> $v")
+            designItem.Size?.let{
+                for ((k, v) in designItem.Size!!) {
+                    println(" Subject Name -> $k and its preference -> $v")
 
-                var gson = Gson()
-                val jsonObject: JsonObject = gson.toJsonTree(v).getAsJsonObject()
+                    var gson = Gson()
+                    val jsonObject: JsonObject = gson.toJsonTree(v).getAsJsonObject()
 
-                var designSizeItem  = gson.fromJson(jsonObject, SizeItem::class.java)
+                    var designSizeItem  = gson.fromJson(jsonObject, SizeItem::class.java)
 
-                designSizeValueList?.add(designSizeItem)
+                    designSizeValueList?.add(designSizeItem)
+                }
             }
-
 
 
             if((designSizeValueList!=null)&&(!designSizeValueList?.isEmpty()!!)){
@@ -118,7 +124,9 @@ class DesignDetailFragment:Fragment(),DesignSizeListAdapter.DesignSizeItemClickL
             Log.d("DesignDetailFragment",designSizeValueList.toString())
 
             binding.txtOrder.setOnClickListener{
-                DesignDao.placeOrder(designItem)
+                Log.d("DesignDetail",localHelper.KEY_USER_ID)
+                progressBarVisibility(View.VISIBLE)
+                placeOrder(designItem,localHelper.KEY_USER_ID)
             }
 
         }catch (e:Exception){
@@ -161,4 +169,31 @@ class DesignDetailFragment:Fragment(),DesignSizeListAdapter.DesignSizeItemClickL
         }
     }
 
+    fun progressBarVisibility(view:Int){
+        _binding?.progressBar?.visibility = view
+    }
+
+    fun placeOrder(designItem: DesignListDataModel, userId:String) {
+        val  database = Firebase.database.reference
+        Log.d("DesignDao",userId)
+        database.child(Constant.USER).child(userId).child(Constant.ORDER).push().setValue(
+            designItem, object : DatabaseReference.CompletionListener {
+                override fun onComplete(error: DatabaseError?, ref: DatabaseReference) {
+                    progressBarVisibility(View.GONE)
+                    if (error != null) {
+                        System.out.println("Data could not be saved. " + error.getMessage())
+                        showToast(getString(R.string.txt_something_went_wrong_please_contact_administrator))
+                    } else {
+                        showToast(getString(R.string.txt_data_saved_successfully))
+                        Navigation.findNavController(requireView())
+                            .navigate(R.id.action_navigation_design_detail_to_order)
+                    }
+                }
+            }
+        )
+    }
+
+    fun showToast(msg:String){
+        Toast.makeText(requireContext(),msg,Toast.LENGTH_LONG).show()
+    }
 }

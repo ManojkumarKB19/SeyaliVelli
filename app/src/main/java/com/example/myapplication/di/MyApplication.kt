@@ -11,12 +11,21 @@ class MyApplication:Application() {
 
     var localeHelper: LocalHelper? = null
 
+    init {
+        applicationCtx = this
+    }
+
     companion object{
         lateinit var appController:MyApplication
+        lateinit var applicationCtx:Context
 
         @Synchronized
         fun getInstanse(): MyApplication? {
             return appController
+        }
+
+        fun getApplicationContext():Context{
+            return applicationCtx
         }
     }
 

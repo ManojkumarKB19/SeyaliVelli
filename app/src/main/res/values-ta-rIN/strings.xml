@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Silver App</string>
-    <string name="title_home">வீடு</string>
+    <string name="title_home">இல்லம்</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_wishlist">விருப்பங்கள்</string>
@@ -50,4 +50,6 @@
     <string name="txt_quantity">Quantity</string>
     <string name="txt_button_add_on">Button Add One</string>
     <string name="txt_number_of_quantity">Number of Quantity</string>
+    <string name="txt_data_saved_successfully">தரவு வெற்றிகரமாக சேமிக்கப்பட்டது</string>
+    <string name="txt_something_went_wrong_please_contact_administrator">ஏதோ தவறாகிவிட்டது, நிர்வாகியைத் தொடர்பு கொள்ளவும்</string>
 </resources>

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.di.CategoryModel
+import com.example.myapplication.dm.CategoryModel
 import com.example.myapplication.utils.Constant
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

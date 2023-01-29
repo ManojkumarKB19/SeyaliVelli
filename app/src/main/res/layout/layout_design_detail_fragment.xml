@@ -6,10 +6,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutImgVw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/light_silver_2">
+
+        <com.example.myapplication.util.TouchImageView
+            android:id="@+id/imgView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="vertical"
+        android:id="@+id/guide5Mainv"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"
+        android:id="@+id/guide50Mainv"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="vertical"
+        android:id="@+id/guide95vMain"/>
+
+    <TextView
+        android:id="@+id/txtAddToCart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/guide5Mainv"
+        app:layout_constraintRight_toLeftOf="@+id/guide50Mainv"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="@color/light_silver_2"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutImgVw"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:text="@string/txt_add_to_cart"
+        android:drawableEnd="@drawable/ic_cart"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="@dimen/_12sdp"/>
+
+    <TextView
+        android:id="@+id/txtOrder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/guide50Mainv"
+        app:layout_constraintRight_toLeftOf="@+id/guide95vMain"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="@color/black"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutImgVw"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:text="@string/txt_order"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:textSize="@dimen/_12sdp"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtOrder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
     >
@@ -33,24 +114,6 @@
                 android:orientation="vertical"
                 android:id="@+id/guide95v"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutImgVw"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/light_silver_2">
-
-                <ImageView
-                    android:id="@+id/imgView"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_200sdp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <ImageView
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
@@ -67,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toRightOf="@+id/guide5v"
-                app:layout_constraintTop_toBottomOf="@+id/layoutImgVw"
+                app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/txt_name"
                 android:textColor="@color/dark_red"
                 android:fontFamily="sans-serif-medium"
@@ -107,6 +170,7 @@
                 app:layout_constraintLeft_toRightOf="@+id/guide5v"
                 app:layout_constraintRight_toLeftOf="@+id/guide95v"
                 app:layout_constraintTop_toBottomOf="@+id/sizeLabel"
+                android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/item_design_size"
                 tools:itemCount="2"/>
 
@@ -116,52 +180,19 @@
                 app:layout_constraintGuide_percent="0.5"
                 android:orientation="vertical"
                 android:id="@+id/guide50v"/>
-            <TextView
-                android:id="@+id/txtAddToCart"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/guide5v"
-                app:layout_constraintRight_toLeftOf="@+id/guide50v"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="@color/light_silver_2"
-                android:padding="@dimen/_10sdp"
-                app:layout_constraintTop_toBottomOf="@+id/sizeRecyclerView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:textColor="@color/black"
-                android:text="@string/txt_add_to_cart"
-                android:drawableEnd="@drawable/ic_cart"
-                android:gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:textSize="@dimen/_16sdp"/>
-
-            <TextView
-                android:id="@+id/txtOrder"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@+id/guide50v"
-                app:layout_constraintRight_toLeftOf="@+id/guide95v"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="@color/black"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sizeRecyclerView"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginBottom="@dimen/_30sdp"
-                android:text="@string/txt_order"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif-black"
-                android:textSize="@dimen/_16sdp"/>
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

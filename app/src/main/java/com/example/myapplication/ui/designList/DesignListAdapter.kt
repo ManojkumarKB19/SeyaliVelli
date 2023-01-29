@@ -6,16 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.GenericTransitionOptions.with
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.with
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.with
 import com.example.myapplication.R
-import com.example.myapplication.di.DesignListDataModel
-import com.example.myapplication.ui.home.DesignCategoryAdapter
-import com.example.myapplication.util.RotateTransformation
+import com.example.myapplication.dm.DesignListDataModel
 import com.squareup.picasso.Picasso
 
-class DesignListAdapter(private val mCtx: Context,private var designList:ArrayList<DesignListDataModel>,val mClickListener: DesignListAdapter.DesignItemClickListener) : RecyclerView.Adapter<DesignListViewHolder>() {
+class DesignListAdapter(private val mCtx: Context, private var designList:ArrayList<DesignListDataModel>, val mClickListener: DesignListAdapter.DesignItemClickListener) : RecyclerView.Adapter<DesignListViewHolder>() {
 
     fun setItems(list:ArrayList<DesignListDataModel>){
         designList = list

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/light_silver_3">
 
-    <ImageView
+    <com.example.myapplication.util.TouchImageView
         android:id="@+id/icClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginRight="@dimen/_5sdp"/>
 
-    <ImageView
+    <com.example.myapplication.util.TouchImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_20sdp"

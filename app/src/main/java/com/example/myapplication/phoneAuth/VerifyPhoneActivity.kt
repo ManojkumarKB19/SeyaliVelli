@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityVerifyPhoneAuthBinding
-import com.example.myapplication.di.User
+import com.example.myapplication.dm.User
 import com.example.myapplication.util.GenericTextWatcher
 import com.example.myapplication.util.LocalHelper
 import com.example.myapplication.utils.Constant
@@ -21,6 +21,7 @@ import com.google.firebase.auth.*
 import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -40,6 +41,9 @@ class VerifyPhoneActivity:AppCompatActivity() {
     var phoneNumber:String? = null
     var userName:String? = null
     var userType:Int? = 0
+
+    @Inject
+    lateinit var localHelper: LocalHelper
 
     var firebaseDatabase: FirebaseDatabase? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -176,7 +180,7 @@ class VerifyPhoneActivity:AppCompatActivity() {
             }
     }
 
-    private fun updateUser(postValues:User,uid:String) {
+    private fun updateUser(postValues: User, uid:String) {
         firebaseDatabase!!.reference.child(Constant.USER).child(uid).setValue(
             postValues
         ) { error, ref ->
@@ -186,9 +190,11 @@ class VerifyPhoneActivity:AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            LocalHelper._KEY_USER_ID = uid
-            LocalHelper._KEY_USER_NAME = postValues.userName!!
-            LocalHelper._KEY_USER_TYPE = Constant.INTENT_USER_TYPE
+            Log.d("VerifyPhoneActivity",uid)
+            localHelper.KEY_USER_ID = uid
+            localHelper.KEY_USER_NAME = postValues.userName!!
+            localHelper.KEY_USER_TYPE = userType?:2
+
 
             val intent = Intent(this@VerifyPhoneActivity, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

@@ -87,6 +87,11 @@
             android:id="@+id/action_navigation_design_detail_to_image_view"
             app:destination="@+id/navigation_image_view"
             />
+
+        <action
+            android:id="@+id/action_navigation_design_detail_to_order"
+            app:destination="@+id/navigation_orders"
+            />
     </fragment>
 
 </navigation>

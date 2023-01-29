@@ -5,17 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDesignCategoriesBinding
-import com.example.myapplication.di.DesignCategoryModel
+import com.example.myapplication.dm.DesignCategoryModel
 import com.example.myapplication.utils.Constant
 import com.example.myapplication.utils.Constant.ARG_DESIGN_CATEGORY
 import com.google.firebase.database.DataSnapshot
@@ -24,7 +20,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
 
 class DesignCategoriesFragment:Fragment(),DesignCategoryAdapter.ItemClickListener {
 

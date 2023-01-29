@@ -8,6 +8,7 @@ object Constant {
     const val INTENT_USER_TYPE = "userType"
     const val INTENT_DESIGN_CATEGORY = "designs"
     const val USER = "User"
+    const val ORDER = "Order"
     const val USER_TYPE_CONST_ADMIN = 1
     const val USER_TYPE_CONST_USER = 2
 
